@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <form id="app" @submit="confirm" method="post" action="/questionaire">
+        <p>
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name" v-model="name">
+        </p>
+        <p>
+            <label for="age">나이</label>
+            <input type="number" name="age" id="age" v-model.number="age">
+        </p>
+        <p>
+            <input type="submit" value="전송">
+        </p>
+    </form>
+    <script>
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    name: null,
+                    age: null
+                }
+            },
+            methods: {
+                confirm: function (e) {
+                    var message = [
+                        '이름: ' + this.name,
+                        '나이: ' + this.age,
+                        '위 내용을 전송하시겠습니까?'
+                    ].join('\n')
+                    if (!window.confirm(message)) {
+                        e.preventDefault()
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

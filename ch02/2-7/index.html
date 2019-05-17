@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
+        <p>필터 예제 {{1000 | numberWithDelimiter}}</p>
+    </div>
+    <script>
+        // 로딩 및 Vue가 전역 변수로 정의되었는지 확인
+        console.assert(typeof Vue !== 'undefined');
+        var items = [
+            {
+                name: '연필', price: 300, quantity: 0
+            }, {
+                name: '공책', price: 400, quantity: 0
+            }, {
+                name: '지우개', price: 500, quantity: 0
+            }
+        ];
+        var vm = new Vue({
+            el: '#app',
+            data: { // data 프로퍼티
+                items: items
+            },
+            filters: { // 이번 절에서 추가한 필터 정의
+                numberWithDelimiter: function (value) {
+                    if (!value) {
+                        return '0'
+                    }
+                    return value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

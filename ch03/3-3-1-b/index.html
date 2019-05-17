@@ -1,0 +1,30 @@
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<!-- 부모 컴포넌트는 fruits-components에 마운트된 인스터스 -->
+<div id="fruits-component">
+  <ol>
+    <!-- v-for를 사용해 각 fruit를 props(fruits-item)에 전달 -->
+    <fruits-item-name v-for="fruit in fruitsItems" :key="fruit.name" :fruits-item="fruit"></fruits-item-name>
+  </ol>
+</div>
+
+<script>
+Vue.component('fruits-item-name', {
+  props: {
+    fruitsItem: { // 템플릿 안에서는 케밥 케이스 사용
+      type: Object, // 객체 여부
+      required: true // 이 컴포넌트에서 반드시 필요하므로 true
+    }
+  },
+  template: '<li>{{fruitsItem.name}}</li>'
+})
+
+new Vue({
+  el: '#fruits-component',
+  data: { // 부모 컴포넌트에서는 배열이지만 v-for를 사용해 객체로 만들어 전달
+    fruitsItems: [
+      {name: '배'},
+      {name: '딸기'}
+    ]
+  }
+})
+</script>

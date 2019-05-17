@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/jquery@3.3.1"></script>
+    <style>
+        .message {
+            font-weight: bold;
+        }
+        .message.is-red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p class="message">메시지</p>
+        <button>글자색 바꾸기</button>
+    </div>
+    <script>
+        var $message = $('.message')
+        $('button').on('click', function () {
+            $message.toggleClass('is-red')
+        })
+    </script>
+</body>
+
+</html>

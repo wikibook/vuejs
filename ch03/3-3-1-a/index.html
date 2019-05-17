@@ -1,0 +1,20 @@
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<div id=app>
+  <item-desc v-bind:item-name='myItem'></item-desc>
+</div>
+
+<script>
+Vue.component('item-desc',{
+  props: {
+    itemName: {
+      type: String
+    }
+  },
+  template: '<p>{{ itemName }}은 편리해</p>'
+})
+
+new Vue({
+  el: '#app',
+  data: { myItem: 'pen'}
+})
+</script>

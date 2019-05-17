@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/jquery@3.3.1"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p id="on">On</p>
+        <p id="off">Off</p>
+        <button>ON/OFF 전환</button>
+    </div>
+    <script>
+        var $on = $('#on')
+        var $off = $('#off')
+        var isOn = false
+        $on.hide()
+        $('button').on('click', function () {
+            isOn = !isOn
+            if (isOn) {
+                $on.show()
+                $off.hide()
+            } else {
+                $on.hide()
+                $off.show()
+            }
+        })
+    </script>
+</body>
+
+</html>

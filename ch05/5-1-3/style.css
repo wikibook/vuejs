@@ -1,0 +1,23 @@
+.v-enter-active,
+.v-leave-active {
+  /* 애니메이션 지속시간, 이징 등을 설정 */
+  transition: opacity 500ms ease-out;
+}
+/* 페이드인 */
+.v-enter {
+  /* 페이드인 처음 상태 */
+  opacity: 0;
+}
+.v-enter-to {
+  /* 페이드인 끝 상태 */
+  opacity: 1;
+}
+/* 페이드아웃 */
+.v-leave {
+  /* 페이드아웃 처음 상태 */
+  opacity: 1;
+}
+.v-leave-to {
+  /* 페이드아웃 끝 상태 */
+  opacity: 0;
+}

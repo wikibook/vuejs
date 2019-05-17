@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue app</title>
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-page>
+            <!-- name 속성값이 header의 <slot>과 치환됨 -->
+            <h1 slot="header">This is my page</h1>
+            <!-- 단일 슬롯과 치환되는 콘텐츠 -->
+            <p>
+                Lorem ipsum dolor sit amet, duo ex illum debet inermis, putant scaevola id
+                vim, cu platonem cotidieque vix. At est atqui efficiendi deterruisset. Sed eu
+                solet antiopam, ex hinc errem altera est. Doming theophrastus ius et, quem latine
+                delicata cum an. Ut aliquid debitis duo, nisl deleniti sit et.
+            </p>
+            <!-- name 속성값이 footer의 <slot>과 치환됨 -->
+            <p slot="footer">This is footer</p>
+        </my-page>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="app">
+            <button v-on:click="sayHi">Click</button>
+            <!-- 편의문법 @ + 이벤트명 을 사용할 수도 있다 --> <!-- <button @click="sayHi">Click</button> -->
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            methods: {
+                sayHi: function (event) {
+                    alert('Hi')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

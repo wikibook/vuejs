@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            {{ message }}
+        </p>
+    </div>
+    <script>
+        // 로딩 및 Vue가 전역 변수로 정의됐는지 확인
+        console.assert(typeof Vue !== 'undefined');
+        new Vue({
+            el: '#app',
+            data: {
+                message: '안녕하세요!'
+            }
+        });
+    </script>
+</body>
+
+</html>

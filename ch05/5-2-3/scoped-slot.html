@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue app</title>
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <todo-list :todos="todos">
+            <li slot-scope="{ todo }" v-if="todo.isCompleted">
+            {{ todo.text }}
+            </li>
+        </todo-list>
+    </div>
+    <script src="./scoped-slot-app.js"></script>
+</body>
+
+</html>

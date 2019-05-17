@@ -1,0 +1,16 @@
+<script src="https://unpkg.com/vue@2.5.17"></script>
+  <main id="main">
+    <fruits-list></fruits-list>
+  </main>
+
+<script>
+Vue.component('fruits-list-title', {
+  template: '<h1>과일 목록</h1>'
+})
+
+Vue.component('fruits-list', {
+  template: '<div><fruits-list-title></fruits-list-title></div>'
+})
+
+new Vue({el: '#main'})
+</script>

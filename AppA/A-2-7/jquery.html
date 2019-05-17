@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/jquery@3.3.1"></script>
+</head>
+
+<body>
+    <form id="app" method="post" action="/questionaire">
+        <p>
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name" value="">
+        </p>
+        <p>
+            <label for="age">나이</label>
+            <input type="number" name="age" id="age" value="">
+        </p>
+        <p>
+            <input type="submit" value="전송">
+        </p>
+    </form>
+    <script>
+        var $nameInput = $('#name')
+        var $ageInput = $('#age')
+        var $form = $('form')
+        $form.on('submit', function (e) {
+            var message = [
+                '이름: ' + $nameInput.val(),
+                '나이: ' + $ageInput.val(),
+                '위 내용을 전송하시겠습니까?'
+            ].join('\n')
+            if (!window.confirm(message)) {
+                e.preventDefault()
+            }
+        })
+    </script>
+</body>
+
+</html>

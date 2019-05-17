@@ -1,0 +1,13 @@
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<ul id="example">
+  <list-item></list-item>
+</ul>
+
+<script>
+// 컴포넌트
+Vue.component('list-item',{
+  template: '<li>foo</li>'
+})
+// 최상위 Vue 인스턴스 생성
+new Vue({ el: '#example' })
+</script>

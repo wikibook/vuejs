@@ -1,0 +1,44 @@
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="fruits-counter">
+  <div v-for="fruit in fruits">
+    {{fruit.name}}: <counter-button v-on:increment="incrementCartStatus()"></counter-button>
+  </div>
+  <p>合計: {{total}}</p>
+</div>
+
+<script>
+var counterButton = Vue.extend({
+  template: '<span>{{counter}}개<button v-on:click="addToCart">추가</button></span>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    addToCart: function () {
+      this.counter += 1
+      this.$emit('increment') // increment 커스텀 이벤트 발생
+    }
+  },
+})
+
+new Vue({
+  el: '#fruits-counter',
+  components:{
+    'counter-button': counterButton
+  },
+  data: {
+    total: 0,
+    fruits: [
+      {name: '배'},
+      {name: '딸기'}
+    ]
+  },
+  methods: {
+    incrementCartStatus: function () {
+      this.total += 1
+    }
+  }
+})
+</script>

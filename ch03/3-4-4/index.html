@@ -1,0 +1,45 @@
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<div id="login-example">
+  <user-login></user-login>
+</div>
+
+<!-- 템플릿 -->
+<script type="text/x-template" id="login-template">
+  <div id="login-template">
+    <div>
+      <input type="text" placeholder="로그인 ID" v-model="userid">
+    </div>
+    <div>
+      <input type="password" placeholder="패스워드" v-model="password">
+    </div>
+    <button @click="login()">로그인</button>
+  </div>
+</script>
+
+<script>
+// 컴포넌트 정의
+Vue.component('user-login', {
+  template: '#login-template',
+  data: function () {
+    return {
+      userid: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function () {
+      auth.login(this.userid, this.password);
+    }
+  }
+})
+
+// 더미 로그인 처리
+var auth = {
+  login: function(id, pass){
+    window.alert("userid:" + id + "\n" + "password:" + pass);
+  }
+}
+new Vue({
+  el: "#login-example"
+});
+</script>

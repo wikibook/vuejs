@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue app</title>
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ count }}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    count: 0,
+                    timerId: null
+                }
+            },
+            created: function () {
+                console.log('created')
+                var that = this
+                // 데이터에서 참조 가능
+                console.log(this.count)
+                // DOM 요소가 연결되지 않았으므로 undefined임
+                console.log(this.$el)
+                // 타이머 시작
+                this.timerId = setInterval(function () {
+                    that.count += 1
+                }, 1000)
+            },
+            mounted: function () {
+                console.log('mounted')
+                // DOM 요소가 연결됨
+                console.log(this.$el)
+            },
+            beforeDestroy: function () {
+                console.log('beforeDestroy')
+                // 타이머 정리
+                clearInterval(this.timerId)
+            }
+        })
+        window.vm = vm
+    </script>
+</body>
+
+</html>

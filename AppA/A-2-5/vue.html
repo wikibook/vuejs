@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+    <style>
+        .message {
+            font-weight: bold;
+        }
+        .message.is-red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p class="message" :class="{'is-red': isRed}">메시지</p>
+        <button @click="toggleColor">글자색 바꾸기</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: function() {
+                return {
+                    isRed: false
+                }
+            },
+            methods: {
+                toggleColor: function() {
+                    this.isRed = !this.isRed
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

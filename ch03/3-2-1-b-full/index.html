@@ -1,0 +1,48 @@
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<div id="fruits-list">
+  <fruits-list-title></fruits-list-title>
+  <fruits-list-description></fruits-list-description>
+  <fruits-list-table></fruits-list-table>
+</div>
+
+<script>
+
+Vue.component('fruits-list-title', {
+  template: '<h1>과일 목록</h1>'
+})
+
+Vue.component('fruits-list-description', {
+  template: '<p>각 계절 대표적 과일의 목록</p>'
+})
+
+Vue.component('fruits-list-table', {
+  template: `
+    <table>
+      <tr>
+        <th>계절</th>
+        <th>과일</th>
+      </tr>
+      <tr>
+        <td>봄</td>
+        <td>딸기</td>
+      </tr>
+      <tr>
+        <td>여름</td>
+        <td>수박</td>
+      </tr>
+      <tr>
+        <td>가을</td>
+        <td>포도</td>
+      </tr>
+      <tr>
+        <td>겨울</td>
+        <td>귤</td>
+      </tr>
+    </table>
+  `
+  })
+
+  new Vue({
+    el: '#fruits-list'
+  })
+</script>

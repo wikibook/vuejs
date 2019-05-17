@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            <input type="text" :disabled="disabled">
+        </p>
+        <button @click="toggleDisabled">{{ buttonText }}</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    disabled: true
+                }
+            },
+            computed: {
+                buttonText: function () {
+                    if (this.disabled) {
+                        return '입력칸을 활성화'
+                    } else {
+                        return '입력칸을 비활성화'
+                    }
+                }
+            },
+            methods: {
+                toggleDisabled: function () {
+                    this.disabled = !this.disabled
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
